@@ -34,25 +34,44 @@ function walk(node)
 function handleText(textNode) 
 {
 	var v = textNode.nodeValue;
-
-	v = v.replace(/\bthe imperium\b/gi, "those bee guys");
-
-	v = v.replace(/\bThe&nbsp;Imperium\b/gi, "Those Bee guys");
-
-	v = v.replace(/\bthe cfc\b/gi, "those bee guys");
 	
-	v = v.replace(/\bthe cluster fuck coalition\b/gi, "those bee guys");
-	v = v.replace(/\bthe clusterfuck coalition\b/gi, "those bee guys");
-
-        v = v.replace(/\ban imperium\b/gi, "those bee guys");
-
-        v = v.replace(/\bimperium\b/gi, "bee guys");
-
-        v = v.replace(/\bdreddit is recruiting\b/gi, "dreddit is no longer recruiting");
-
-        v = v.replace(/\bcfc\b/gi, "bee guys");
-
-        v = v.replace(/\bgoons\b/gi, "bees");
+    v = v.replace(/\b(dreddit is) (recruiting)\b/gi, "$1 no longer $2");
+	
+	var reg = new RegExp(/\b(the|an)\s(i)mperium\b/gi);
+	var res = reg.exec(v);
+	if(res != null){
+		v = (res[1] == res[1].toUpperCase() ? "T" : "t")  + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys";		
+	}
+	
+	reg = new RegExp(/\b(i)mperium\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys";		
+	}
+	
+	reg = new RegExp(/\b(t)he (c)fc\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys";		
+	}
+	
+	reg = new RegExp(/\b(t)he (c)luster\s{0,1}fuck coalition\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys";		
+	}	
+	
+	reg = new RegExp(/\b(c)fc\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys";		
+	}	
+	
+	reg = new RegExp(/\b(g)oons\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = (res[1] == res[1].toUpperCase() ? "B" : "b") + "ees";		
+	}
 
 	textNode.nodeValue = v;
 }
