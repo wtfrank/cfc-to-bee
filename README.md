@@ -9,7 +9,7 @@ Chrome extension that replaces occurrences of 'The Imperium' with 'those bee guy
 Installation
 ------------
 
-In Chrome, choose Window > Extensions.  Drag CFCtoBee.crx into the page that appears.
+In Chrome, click on the three lines in the top right, then More tools > Extensions.  Drag CFCtoBee.crx into the page that appears.
 
 Ruse
 ----
