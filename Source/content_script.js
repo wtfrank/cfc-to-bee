@@ -34,50 +34,44 @@ function walk(node)
 function handleText(textNode) 
 {
 	var v = textNode.nodeValue;
-
-	v = v.replace(/\bThe Imperium\b/g, "Those Bee guys");
-	v = v.replace(/\bThe imperium\b/g, "Those bee guys");
-	v = v.replace(/\bthe Imperium\b/g, "those bee guys");
-	v = v.replace(/\bthe imperium\b/g, "those bee guys");
-
-	v = v.replace(/\bThe&nbsp;Imperium\b/g, "Those Bee guys");
-
-	v = v.replace(/\bThe CFC\b/g, "Those Bee guys");
-	v = v.replace(/\bThe cfc\b/g, "Those bee guys");
-	v = v.replace(/\bthe CFC\b/g, "those bee guys");
-	v = v.replace(/\bthe cfc\b/g, "those bee guys");
 	
-	v = v.replace(/\bThe Cluster Fuck Coalition\b/g, "Those Bee guys");
-	v = v.replace(/\bThe ClusterFuck Coalition\b/g, "Those Bee guys");
-	v = v.replace(/\bThe Cluster fuck Coalition\b/g, "Those Bee guys");
-	v = v.replace(/\bThe Clusterfuck Coalition\b/g, "Those Bee guys");
-	v = v.replace(/\bThe cluster fuck coalition\b/g, "Those bee guys");
-	v = v.replace(/\bThe clusterfuck coalition\b/g, "Those bee guys");
-	v = v.replace(/\bthe Cluster fuck coalition\b/g, "those bee guys");
-	v = v.replace(/\bthe Clusterfuck coalition\b/g, "those bee guys");
-	v = v.replace(/\bthe cluster fuck Coalition\b/g, "those bee guys");
-	v = v.replace(/\bthe clusterfuck Coalition\b/g, "those bee guys");
-	v = v.replace(/\bthe cluster fuck coalition\b/g, "those bee guys");
-	v = v.replace(/\bthe clusterfuck coalition\b/g, "those bee guys");
-
-        v = v.replace(/\bAn Imperium\b/g, "Those Bee guys");
-        v = v.replace(/\bAn imperium\b/g, "Those bee guys");
-        v = v.replace(/\ban Imperium\b/g, "those bee guys");
-        v = v.replace(/\ban imperium\b/g, "those bee guys");
-
-        v = v.replace(/\bImperium\b/g, "Bee guys");
-        v = v.replace(/\bimperium\b/g, "bee guys");
-
-        v = v.replace(/\bDreddit is Recruiting\b/g, "Dreddit is no longer Recruiting");
-        v = v.replace(/\bDreddit is recruiting\b/g, "Dreddit is no longer recruiting");
-        v = v.replace(/\bdreddit is recruiting\b/g, "dreddit is no longer recruiting");
-
-        v = v.replace(/\bCFC\b/g, "Bee guys");
-        v = v.replace(/\bCfc\b/g, "Bee guys");
-        v = v.replace(/\bcfc\b/g, "bee guys");
-
-        v = v.replace(/\bGoons\b/g, "Bees");
-        v = v.replace(/\bgoons\b/g, "bees");
+    v = v.replace(/\b(dreddit is) (recruiting)\b/gi, "$1 no longer $2");
+	
+	var reg = new RegExp(/\b(the|an)\s(i)mperium\b/gi);
+	var res = reg.exec(v);
+	if(res != null){
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "T" : "t")  + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys");		
+	}
+	
+	reg = new RegExp(/\b(i)mperium\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys");		
+	}
+	
+	reg = new RegExp(/\b(t)he (c)fc\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys");		
+	}
+	
+	reg = new RegExp(/\b(t)he (c)luster\s{0,1}fuck coalition\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys");		
+	}	
+	
+	reg = new RegExp(/\b(c)fc\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys");		
+	}	
+	
+	reg = new RegExp(/\b(g)oons\b/gi);
+	res = reg.exec(v);
+	if(res != null){
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "B" : "b") + "ees");		
+	}
 
 	textNode.nodeValue = v;
 }
