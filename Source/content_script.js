@@ -38,7 +38,7 @@ function handleText(textNode)
 	v = v.replace(/\bThe Imperium\b/g, "Those Bee guys");
 	v = v.replace(/\bThe imperium\b/g, "Those bee guys");
 	v = v.replace(/\bthe Imperium\b/g, "those bee guys");
-	v = v.replace(/\bthe imperium\b/g, "those bee guys");a
+	v = v.replace(/\bthe imperium\b/g, "those bee guys");
 
 	v = v.replace(/\bThe&nbsp;Imperium\b/g, "Those Bee guys");
 
@@ -68,6 +68,7 @@ function handleText(textNode)
         v = v.replace(/\bImperium\b/g, "Bee guys");
         v = v.replace(/\bimperium\b/g, "bee guys");
 
+        v = v.replace(/\bDreddit is Recruiting\b/g, "Dreddit is no longer Recruiting");
         v = v.replace(/\bDreddit is recruiting\b/g, "Dreddit is no longer recruiting");
         v = v.replace(/\bdreddit is recruiting\b/g, "dreddit is no longer recruiting");
 
