@@ -40,37 +40,37 @@ function handleText(textNode)
 	var reg = new RegExp(/\b(the|an)\s(i)mperium\b/gi);
 	var res = reg.exec(v);
 	if(res != null){
-		v = (res[1] == res[1].toUpperCase() ? "T" : "t")  + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys";		
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "T" : "t")  + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys");		
 	}
 	
 	reg = new RegExp(/\b(i)mperium\b/gi);
 	res = reg.exec(v);
 	if(res != null){
-		v = (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys";		
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys");		
 	}
 	
 	reg = new RegExp(/\b(t)he (c)fc\b/gi);
 	res = reg.exec(v);
 	if(res != null){
-		v = (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys";		
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys");		
 	}
 	
 	reg = new RegExp(/\b(t)he (c)luster\s{0,1}fuck coalition\b/gi);
 	res = reg.exec(v);
 	if(res != null){
-		v = (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys";		
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "T" : "t") + "hose " + (res[2] == res[2].toUpperCase() ? "B" : "b") + "ee guys");		
 	}	
 	
 	reg = new RegExp(/\b(c)fc\b/gi);
 	res = reg.exec(v);
 	if(res != null){
-		v = (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys";		
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "B" : "b") + "ee guys");		
 	}	
 	
 	reg = new RegExp(/\b(g)oons\b/gi);
 	res = reg.exec(v);
 	if(res != null){
-		v = (res[1] == res[1].toUpperCase() ? "B" : "b") + "ees";		
+		v = v.replace(res[0], (res[1] == res[1].toUpperCase() ? "B" : "b") + "ees");		
 	}
 
 	textNode.nodeValue = v;
